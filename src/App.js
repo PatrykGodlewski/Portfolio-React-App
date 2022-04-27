@@ -1,13 +1,15 @@
 import React from "react";
 import NavFixed from "./components/NavFixed/NavFixed";
-import Footer from "./components/NavFixed/Footer";
+import Footer from "./components/Footer/Footer";
+import DisplayPages from "./components/DisplayPages/DisplayPages";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <NavFixed />
+      <DisplayPages />
       <Footer />
-    </div>
+    </>
   );
 }
 

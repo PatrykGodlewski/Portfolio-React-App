@@ -1,33 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import Indicator from "../Indicator/Indicator";
 
 export default function Footer() {
   const FooterContainer = styled.footer`
     display: flex;
-    justify-content: space-around;
-    position: absolute;
+    justify-content: space-between;
+    position: fixed;
     bottom: 0;
     width: 100vw;
     height: ${({ theme }) => theme.RATIO + "px"};
-    padding-inline: ${({ theme }) => theme.RATIO + "px"};
+    padding-inline: ${({ theme }) => `calc(${theme.RATIO}px + 6rem)`};
   `;
-  const Indicator = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 1.5rem;
-    .scroll {
-      color: white;
-      font-weight: 200;
-      letter-spacing: 0.3rem;
-    }
-    .line {
-      height: 40px;
-      width: 1px;
-      background: white;
-    }
-  `;
+
   const Pagination = styled.div`
     display: flex;
     align-items: center;
@@ -81,10 +66,7 @@ export default function Footer() {
 
   return (
     <FooterContainer>
-      <Indicator>
-        <span className="scroll">SCROLL</span>
-        <sapn className="line" />
-      </Indicator>
+      <Indicator />
       <Pagination>
         <PagePaginator active>
           <h6>MAIN</h6> <span />
