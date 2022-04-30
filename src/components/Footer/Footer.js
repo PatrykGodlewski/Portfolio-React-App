@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Indicator from "../Indicator/Indicator";
+import Pagination from "../Pagination/Pagination";
 
-export default function Footer() {
+function Footer() {
   const FooterContainer = styled.footer`
     display: flex;
     justify-content: space-between;
@@ -11,40 +12,9 @@ export default function Footer() {
     width: 100vw;
     height: ${({ theme }) => theme.RATIO + "px"};
     padding-inline: ${({ theme }) => `calc(${theme.RATIO}px + 6rem)`};
+    z-index: 998;
   `;
 
-  const Pagination = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8rem;
-  `;
-  const PagePaginator = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-    &:last-child {
-      & > span {
-        display: none;
-      }
-    }
-    & > h6 {
-      position: absolute;
-      top: -1.5rem;
-      color: white;
-    }
-    & > span {
-      position: absolute;
-      left: 0;
-      width: calc(8rem + 20px);
-      height: 4px;
-      background-color: white;
-    }
-  `;
   const Details = styled.div`
     display: flex;
     align-items: center;
@@ -67,20 +37,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <Indicator />
-      <Pagination>
-        <PagePaginator active>
-          <h6>MAIN</h6> <span />
-        </PagePaginator>
-        <PagePaginator>
-          <h6>MAIN</h6> <span />
-        </PagePaginator>
-        <PagePaginator>
-          <h6>MAIN</h6> <span />
-        </PagePaginator>
-        <PagePaginator>
-          <h6>MAIN</h6> <span />
-        </PagePaginator>
-      </Pagination>
+      <Pagination />
       <Details>
         <div>
           <span className="heading">Proffesional</span>
@@ -98,3 +55,5 @@ export default function Footer() {
     </FooterContainer>
   );
 }
+
+export default React.memo(Footer);

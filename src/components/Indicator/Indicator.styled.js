@@ -8,6 +8,8 @@ const indicateAnimation = keyframes`
 
 export const IndicatorStyled = styled.div`
   display: flex;
+  transition: opacity 200ms ease;
+  opacity: ${({ pagination }) => (pagination >= 1 ? "0" : "1")};
   flex-direction: column;
   justify-content: start;
   align-items: center;
