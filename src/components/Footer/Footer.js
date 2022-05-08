@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Indicator from "../Indicator/Indicator";
 import Pagination from "../Pagination/Pagination";
+import ReturnButton from "../ReturnButton/ReturnButton";
 
 function Footer() {
   const FooterContainer = styled.footer`
@@ -11,7 +12,7 @@ function Footer() {
     bottom: 0;
     width: 100vw;
     height: ${({ theme }) => theme.RATIO + "px"};
-    padding-inline: ${({ theme }) => `calc(${theme.RATIO}px + 6rem)`};
+    padding-right: ${({ theme }) => `calc(${theme.RATIO}px + 6rem)`};
     z-index: 998;
   `;
 
@@ -36,6 +37,7 @@ function Footer() {
 
   return (
     <FooterContainer>
+      <ReturnButton />
       <Indicator />
       <Pagination />
       <Details>

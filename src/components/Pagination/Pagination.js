@@ -6,10 +6,6 @@ export default function Pagination() {
   const { pagesInfo, pageApi } = useContext(Context);
   const { currentPage, pages } = pagesInfo;
 
-  useEffect(() => {
-    console.log(pageApi);
-  }, [pageApi]);
-
   return (
     <PaginationStyled>
       {pages &&
@@ -19,6 +15,7 @@ export default function Pagination() {
             <PagePaginator
               onClick={() => pageApi.moveTo(index + 1)}
               active={index === currentPage ? true : false}
+              key={index}
             >
               <h4>{pageName}</h4> <span />
             </PagePaginator>
