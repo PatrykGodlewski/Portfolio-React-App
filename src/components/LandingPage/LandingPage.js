@@ -4,7 +4,7 @@ import { LandingPageStyled, HeadingElement } from "./LandingPage.styled";
 const MAIN_TEXT = "HELLO I_AM";
 const ANIMATED_TEXT = ["PATRYK", "DEVELOPER", "DESIGNER", "GAMER"];
 
-export default function LandingPage() {
+export default function LandingPage({ pagename }) {
   const refAnim = useRef();
   useEffect(() => {}, []);
   const makeHeading = (staticText, animatedText) => {
@@ -43,7 +43,7 @@ export default function LandingPage() {
   };
 
   return (
-    <LandingPageStyled data-pagename={"main"}>
+    <LandingPageStyled data-pagename={pagename}>
       <div>
         <button
           style={{ cursor: "pointer", padding: "30px" }}

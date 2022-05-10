@@ -32,6 +32,7 @@ export const PagePaginator = styled.div`
     top: -2rem;
     color: white;
     text-transform: uppercase;
+    white-space: nowrap;
   }
   & > span {
     position: absolute;

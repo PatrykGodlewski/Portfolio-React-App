@@ -1,7 +1,8 @@
 import React, { useEffect, useContext, useState } from "react";
-import LandingPage from "../LandingPage/LandingPage";
 import ReactFullpage from "@fullpage/react-fullpage";
 import { Context } from "../../App";
+import LandingPage from "../LandingPage/LandingPage";
+import ProjectsPage from "../ProjectsPage/ProjectsPage";
 
 export const DisplayPages = (props) => {
   const { pagesInfo, setPagesInfo, setPageApi } = useContext(Context);
@@ -26,13 +27,13 @@ export const DisplayPages = (props) => {
         return (
           <ReactFullpage.Wrapper>
             <div className="section">
-              <LandingPage />
+              <LandingPage pagename={"main"} />
             </div>
             <div className="section">
-              <LandingPage />
+              <ProjectsPage pagename={"projects"} />
             </div>
             <div className="section">
-              <LandingPage />
+              <LandingPage pagename={"Contact Me"} />
             </div>
           </ReactFullpage.Wrapper>
         );
