@@ -13,8 +13,14 @@ html {
     font-family: 'Montserrat', sans-serif;
 }
 
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
 body {
-  background-color: rgb(30,30,30);
+  background-color: #1e1e1e;
 }
   `;
 export default GlobalStyle;

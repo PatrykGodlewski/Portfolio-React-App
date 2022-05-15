@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
+const CIRCLE_SIZE = 20;
+const SPACING = 15;
+
 export const PaginationStyled = styled.div`
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: ${SPACING}rem;
 `;
 
 export const PagePaginator = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: ${CIRCLE_SIZE}px;
+  height: ${CIRCLE_SIZE}px;
   border-radius: 50%;
   transition: background-color 800ms ease;
   background-color: ${({ theme, active }) =>
-    active ? "white" : theme.colors.background};
+    active ? "white" : "transparent"};
   border: 2px solid white;
   position: relative;
   cursor: pointer;
@@ -37,7 +40,7 @@ export const PagePaginator = styled.div`
   & > span {
     position: absolute;
     left: 17px;
-    width: calc(8rem + 20px);
+    width: calc(${SPACING}rem + 2px);
     height: 4px;
     background-color: white;
     cursor: default;

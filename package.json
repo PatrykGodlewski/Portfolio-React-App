@@ -5,13 +5,20 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fullpage/react-fullpage": "^0.1.23",
+    "@splinetool/loader": "^0.9.50",
+    "@splinetool/react-spline": "^2.2.0",
+    "@splinetool/runtime": "^0.9.49",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "chroma-js": "^2.4.2",
+    "lodash": "^4.17.21",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-loadable": "^5.5.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
+    "three": "^0.140.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

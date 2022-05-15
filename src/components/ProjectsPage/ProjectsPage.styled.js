@@ -17,7 +17,7 @@ export const CardList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+  transform: translateY(-203px) rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
 `;
 export const CardDescription = styled.div`
   position: absolute;

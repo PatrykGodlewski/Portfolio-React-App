@@ -6,7 +6,7 @@ import LineDecor from "../LineDecor/LineDecor";
 function NavFixed() {
   const Container = styled.header`
     position: fixed;
-    inset: 0 0 calc(100vh - 112px) 0;
+    inset: 0 0 calc(100vh - ${({ theme }) => theme.RATIO}px) 0;
     z-index: 999;
   `;
   const Navbar = styled.nav`

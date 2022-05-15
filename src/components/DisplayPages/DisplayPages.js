@@ -3,9 +3,10 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import { Context } from "../../App";
 import LandingPage from "../LandingPage/LandingPage";
 import ProjectsPage from "../ProjectsPage/ProjectsPage";
+import ContactForm from "../ContactForm/ContactForm";
 
-export const DisplayPages = (props) => {
-  const { pagesInfo, setPagesInfo, setPageApi } = useContext(Context);
+const DisplayPages = (props) => {
+  const { setPagesInfo, setPageApi } = useContext(Context);
   return (
     <ReactFullpage
       licenseKey="gplv3-license"
@@ -20,9 +21,6 @@ export const DisplayPages = (props) => {
         setPagesInfo((prev) => ({ ...prev, currentPage: origin.index }));
       }}
       render={({ state, fullpageApi }) => {
-        // const scrollTo = () => {
-        //   fullpageApi.moveSectionUp();
-        // };
         setPageApi(fullpageApi);
         return (
           <ReactFullpage.Wrapper>
@@ -33,7 +31,7 @@ export const DisplayPages = (props) => {
               <ProjectsPage pagename={"projects"} />
             </div>
             <div className="section">
-              <LandingPage pagename={"Contact Me"} />
+              <ContactForm pagename={"Contact Me"} />
             </div>
           </ReactFullpage.Wrapper>
         );
@@ -41,3 +39,5 @@ export const DisplayPages = (props) => {
     />
   );
 };
+
+export default DisplayPages;
