@@ -38,8 +38,8 @@ export default function ProjectsPage({ pagename }) {
     >
       <CardList>
         {PROJECTS.map((item, index) => (
-          <>
-            <Card key={index}>
+          <React.Fragment key={index + "wrapper"}>
+            <Card key={index + "card"}>
               <Overlay href={"#"} />
               <CardTitle>Title</CardTitle>
               <CardImg>
@@ -57,7 +57,7 @@ export default function ProjectsPage({ pagename }) {
               </CardDescription>
             </Card>
             <CardShadow></CardShadow>
-          </>
+          </React.Fragment>
         ))}
       </CardList>
     </PageWrapper>

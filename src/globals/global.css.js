@@ -8,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+*, *:hover{
+  cursor: none !important;
+
+}
 html {
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +22,11 @@ canvas {
   position: fixed;
   inset: 0;
   z-index: -1;
+}
+
+canvas#canvas {
+  z-index: 99999999999999;
+  pointer-events: none;
 }
 
 body {

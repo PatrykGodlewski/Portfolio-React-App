@@ -34,15 +34,17 @@ function App() {
     <>
       <Context.Provider value={value}>
         {isLoading && <Loader />}
-        <MouseTracker
-          render={(props) => {
-            return <TestTracker pos={props} />;
-          }}
-        />
-        <NavFixed />
-        <DisplayPages />
-        <Footer />
-        <SplineBackground />
+        <div style={isLoading ? { opacity: 0 } : { opacity: 1 }}>
+          <MouseTracker
+            render={(props) => {
+              return <TestTracker pos={props} />;
+            }}
+          />
+          <NavFixed />
+          <DisplayPages />
+          <Footer />
+          <SplineBackground />
+        </div>
       </Context.Provider>
     </>
   );

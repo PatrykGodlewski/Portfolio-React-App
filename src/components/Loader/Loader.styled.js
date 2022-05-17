@@ -33,7 +33,7 @@ const Goo = styled.circle`
 
 export const GooeySpinner = (props) => (
   <svg viewBox="-1.2 -1.2 2.4 2.4" filter="url(#goo)" {...props}>
-    {_.range(props.nBlobs).map((i) => (
+    {_.range(props.nblobs).map((i) => (
       <Goo
         key={i}
         color={chroma.scale(props.colors)(Math.random())}
