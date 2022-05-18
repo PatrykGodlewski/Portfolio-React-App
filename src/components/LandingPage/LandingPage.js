@@ -12,8 +12,6 @@ export default function LandingPage({ pagename }) {
   const [animation, setAnimation] = useState(false);
 
   const animateMyHeader = () => {
-    console.log(nth);
-
     const textContainer = refAnim.current;
 
     textContainer.classList.remove(CLASSES[nth.prev]);
@@ -22,7 +20,6 @@ export default function LandingPage({ pagename }) {
     if (nth.current === 3) CLASSES.reverse();
 
     setNth((nthPrev) => {
-      console.log(nthPrev, "second");
       return {
         current: nthPrev.current >= 3 ? 1 : ++nthPrev.current,
         prev: 1,

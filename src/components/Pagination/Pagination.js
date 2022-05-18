@@ -3,7 +3,7 @@ import { Context } from "../../App";
 import { PaginationStyled, PagePaginator } from "./Pagination.styled";
 
 export default function Pagination() {
-  const { pagesInfo, pageApi } = useContext(Context);
+  const { pagesInfo, pageApi, setIsHoverSnap } = useContext(Context);
   const { currentPage, pages } = pagesInfo;
 
   return (
@@ -16,6 +16,12 @@ export default function Pagination() {
               onClick={() => pageApi.moveTo(index + 1)}
               active={index === currentPage ? true : false}
               key={index}
+              onMouseEnter={(e) =>
+                setIsHoverSnap({ event: e, isHoverSnap: true })
+              }
+              onMouseLeave={(e) =>
+                setIsHoverSnap({ event: e, isHoverSnap: false })
+              }
             >
               <h4>{pageName}</h4> <span />
             </PagePaginator>

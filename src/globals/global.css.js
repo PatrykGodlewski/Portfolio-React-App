@@ -24,11 +24,6 @@ canvas {
   z-index: -1;
 }
 
-canvas#canvas {
-  z-index: 99999999999999;
-  pointer-events: none;
-}
-
 body {
   background-color: #1e1e1e;
 }

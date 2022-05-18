@@ -5,7 +5,7 @@ import Loader from "./components/Loader/Loader";
 import DisplayPages from "./components/DisplayPages/DisplayPages";
 import SplineBackground from "./components/SplineBackground/SplineBackground";
 import MouseTracker from "./components/MouseTracker/MouseTracker";
-import TestTracker from "./components/MouseTracker/Trackers/TestTracker";
+import AnimatedTracker from "./components/MouseTracker/AnimatedTracker/AnimatedTracker";
 // import SplineBackgroundThree from "./components/SplineBackground/SplineBackgroundThree.js";
 
 export const Context = React.createContext();
@@ -18,6 +18,8 @@ function App() {
   const [pageApi, setPageApi] = useState();
   const [splineObject, setSplineObject] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isHover, setIsHover] = useState(false);
+  const [isHoverSnap, setIsHoverSnap] = useState(false);
 
   const value = {
     pagesInfo,
@@ -28,6 +30,8 @@ function App() {
     splineObject,
     setIsLoading,
     isLoading,
+    setIsHover,
+    setIsHoverSnap,
   };
 
   return (
@@ -37,7 +41,14 @@ function App() {
         <div style={isLoading ? { opacity: 0 } : { opacity: 1 }}>
           <MouseTracker
             render={(props) => {
-              return <TestTracker pos={props} />;
+              return (
+                <AnimatedTracker
+                  pos={props.pos}
+                  opacity={props.trackerOpacity}
+                  isHover={isHover}
+                  isHoverSnap={isHoverSnap}
+                />
+              );
             }}
           />
           <NavFixed />

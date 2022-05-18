@@ -34,9 +34,7 @@ export default function SplineBackground() {
     setSpline(spline);
   }
 
-  function tiltSpline(e) {
-    console.log(e.clientX, e.clientY);
-  }
+  function tiltSpline(e) {}
 
   function triggerAnimation() {
     spline.setZoom(-100);

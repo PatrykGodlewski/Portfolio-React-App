@@ -22,9 +22,6 @@ export const PagePaginator = styled.div`
   border: 2px solid white;
   position: relative;
   cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.backgroundFaded};
-  }
   &:last-child {
     & > span {
       display: none;
@@ -36,6 +33,8 @@ export const PagePaginator = styled.div`
     color: white;
     text-transform: uppercase;
     white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
   }
   & > span {
     position: absolute;
@@ -44,5 +43,7 @@ export const PagePaginator = styled.div`
     height: 4px;
     background-color: white;
     cursor: default;
+    user-select: none;
+    pointer-events: none;
   }
 `;

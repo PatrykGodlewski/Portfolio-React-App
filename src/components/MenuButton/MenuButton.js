@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Menu, MenuIcon, MenuItem, Link } from "./MenuButton.styled";
 import { MENU_LINKS } from "../../globals/siteOptions";
 import { css } from "styled-components";
+import { Context } from "../../App";
 
 export default function MenuButton() {
   const [isRevealed, setIsRevealed] = useState(false);
+  const { setIsHoverSnap } = useContext(Context);
 
   const handleMenuReveal = (e) => {
     setIsRevealed((prev) => !prev);
@@ -34,8 +36,13 @@ export default function MenuButton() {
   };
 
   return (
-    <Menu>
-      <MenuIcon isRevealed={isRevealed} onClick={handleMenuReveal}>
+    <Menu data-menu>
+      <MenuIcon
+        isRevealed={isRevealed}
+        onClick={handleMenuReveal}
+        onMouseEnter={(e) => setIsHoverSnap({ event: e, isHoverSnap: true })}
+        onMouseLeave={(e) => setIsHoverSnap({ event: e, isHoverSnap: false })}
+      >
         <div>
           <span></span>
           <span></span>
@@ -50,6 +57,8 @@ export default function MenuButton() {
           customCss={({ theme }) =>
             getAbsolutePosition(isRevealed, theme, index)
           }
+          onMouseEnter={(e) => setIsHoverSnap({ event: e, isHoverSnap: true })}
+          onMouseLeave={(e) => setIsHoverSnap({ event: e, isHoverSnap: false })}
         >
           <Link key={index} href={item.link}>
             <img src={item.icon} alt="logo" />

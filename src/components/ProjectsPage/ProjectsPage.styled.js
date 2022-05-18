@@ -17,7 +17,7 @@ export const CardList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  transform: translateY(-203px) rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(35deg);
 `;
 export const CardDescription = styled.div`
   position: absolute;
@@ -49,7 +49,7 @@ export const Card = styled.div`
     outline: 10px solid white;
     box-shadow: -20px 20px 30px black;
     z-index: 999999;
-    transform: translate(20px, -20px);
+    transform: translate(-20px, -20px);
     ${CardDescription} {
       transition: max-height ${timeing * 2}ms ease-in;
       max-height: 100%;

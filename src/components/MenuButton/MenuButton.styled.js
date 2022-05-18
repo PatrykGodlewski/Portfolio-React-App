@@ -7,7 +7,7 @@ export const Menu = styled.ul`
   width: ${({ theme }) => theme.RATIO}px;
   height: ${({ theme }) => theme.RATIO}px;
   position: relative;
-  z-index: 1;
+  z-index: 1002;
   &::before {
     content: "";
     position: absolute;
@@ -31,7 +31,7 @@ export const MenuIcon = styled.li`
   display: grid;
   inset: 0;
   background: ${({ theme }) => theme.colors.white};
-  z-index: 1;
+  z-index: 1002;
   cursor: pointer;
   & > div {
     display: flex;

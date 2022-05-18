@@ -3,11 +3,15 @@ import { StyledReturnButton } from "./ReturnButton.styled";
 import { Context } from "../../App";
 
 export default function ReturnButton() {
-  const { pagesInfo, pageApi } = useContext(Context);
+  const { pagesInfo, pageApi, setIsHover } = useContext(Context);
 
   return (
     <StyledReturnButton pagination={pagesInfo.currentPage}>
-      <div onClick={() => pageApi.moveTo(1)}>
+      <div
+        onClick={() => pageApi.moveTo(1)}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
