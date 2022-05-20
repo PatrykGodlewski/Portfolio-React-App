@@ -16,6 +16,15 @@ const GlobalStyle = createGlobalStyle`
 html {
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 74px
 }
 
 canvas {

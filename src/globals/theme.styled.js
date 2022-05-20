@@ -4,6 +4,11 @@ import { ThemeProvider } from "styled-components";
 const theme = {
   RATIO: 64 * 1.5,
   textFaded: "rgba(255, 255, 255, 0.6)",
+  fontWeight: {
+    regular: 300,
+    semiBold: 600,
+    bold: 900,
+  },
   colors: {
     white: "white",
     fadedWhite: "rgba(255, 255, 255, 0.6)",
