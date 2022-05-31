@@ -11,13 +11,17 @@ export const PageWrapper = styled.div`
   transition: opacity 600ms ease-out;
   opacity: ${({ active }) => (active ? 1 : 0)};
 `;
-export const CardList = styled.div`
+
+export const CardListWrapper = styled.div`
   position: absolute;
-  inset: 0;
+  inset: 96;
+  left: 0;
+`;
+
+export const CardList = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 2rem;
-  transform: rotateX(60deg) rotateY(0deg) rotateZ(35deg);
 `;
 export const CardDescription = styled.div`
   position: absolute;
@@ -38,8 +42,11 @@ export const CardTitle = styled.h1`
 
 export const Card = styled.div`
   position: relative;
-  /* max-width: 200px; */
-  height: min-content;
+
+  aspect-ratio: 16 / 9;
+  /* width: 100%; */
+  /* height: calc(50vh - 96px); */
+
   background-color: gray;
   transition: outline ${timeing * 1.6}ms, box-shadow ${timeing * 1.6}ms,
     transform ${timeing}ms;
@@ -65,7 +72,7 @@ export const CardShadow = styled.div``;
 
 export const CardImg = styled.div`
   & > img {
-    width: 400px;
+    width: 100%;
   }
 `;
 

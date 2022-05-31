@@ -11,7 +11,19 @@ export default function Loader() {
         nblobs={20}
         colors={["turquoise", "orchid"]}
       />
-      <h1 style={{ position: "absolute", color: "white" }}> LOADING </h1>
+      <h1
+        style={{
+          position: "absolute",
+          color: "white",
+          fontSize: "20px",
+          fontWeight: 300,
+          letterSpacing: "1rem",
+          fontFamily: "Montserrat",
+        }}
+      >
+        {" "}
+        LOADING{" "}
+      </h1>
     </Display>
   );
 }
