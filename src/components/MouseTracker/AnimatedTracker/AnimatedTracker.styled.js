@@ -22,6 +22,8 @@ export const AnimatedTrackerStyled = styled.div`
   transition: opacity 250ms ease-in-out;
   pointer-events: none;
   user-select: none;
+  mix-blend-mode: difference;
+
   &::before {
     content: "";
     position: absolute;

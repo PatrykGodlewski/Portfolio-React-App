@@ -12,7 +12,7 @@ function NavFixed() {
 
   useEffect(() => {
     if (!isLoaded) return;
-    const refsToAnimate = allRefs.current.filter((item, i) => i < 3 && item);
+    const refsToAnimate = allRefs.current.filter((item, i) => i < 4 && item);
     gsap.to(refsToAnimate, {
       duration: 2,
       stagger: 0.2,
@@ -45,6 +45,13 @@ function NavFixed() {
         <MenuButton />
         <Wrapper>
           <NavbarInfo>
+            <li
+              ref={(ref) => allRefs.current.push(ref)}
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
+            >
+              ALPHA 0.1
+            </li>
             <li
               ref={(ref) => allRefs.current.push(ref)}
               onMouseEnter={() => setIsHover(true)}

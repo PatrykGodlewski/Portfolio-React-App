@@ -2,7 +2,7 @@ import styled from "styled-components";
 import About from "./About/About";
 
 export const ContactFormStyled = styled.section`
-  padding: ${({ theme }) => theme.RATIO + "px"};
+  padding: ${({ theme }) => theme.RATIO + 40}px;
   padding-right: ${({ theme }) => `calc(${theme.RATIO}px + 6rem)`};
   height: 100%;
   width: 100%;
@@ -18,7 +18,7 @@ export const ContactFormStyled = styled.section`
     flex-direction: column;
 
     label {
-      color: white;
+      display: none;
     }
     .form-control {
       background-color: transparent;
@@ -27,6 +27,7 @@ export const ContactFormStyled = styled.section`
       padding: 2rem;
       color: white;
       resize: none;
+      border-radius: 5px;
       &::placeholder {
         color: white;
         opacity: 0.5;
@@ -39,6 +40,7 @@ export const ContactFormStyled = styled.section`
     padding: 2rem;
     background-color: white;
     border: none;
+    border-radius: 5px;
     &:hover,
     &:focus {
       outline: 1px solid #f85555;

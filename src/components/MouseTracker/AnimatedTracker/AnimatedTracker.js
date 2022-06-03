@@ -33,10 +33,6 @@ export default function AnimatedTracker({
     borderRadius: isHoverSnap.isHoverSnap && isDatasetMenu && "0",
   };
 
-  useEffect(() => {
-    // console.log(isHoverSnap?.event.target.parentNode.parentNode.dataset.menu);
-  });
-
   return (
     <>
       <AnimatedTrackerStyled

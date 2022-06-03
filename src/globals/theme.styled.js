@@ -15,6 +15,7 @@ const theme = {
     semiWhite: "rgba(255, 255, 255, 0.8)",
     background: "rgb(30,30,30)",
     backgroundFaded: "rgb(120,120,120)",
+    btnActive: "rgb(160,160,160)",
   },
   menuVars: {
     height: "4px",
