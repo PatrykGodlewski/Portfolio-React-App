@@ -10,8 +10,7 @@ import {
   Overlay,
 } from "./ProjectsPage.styled";
 import { Context } from "../../App";
-
-const PROJECTS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+import { PROJECTS } from "../../globals/siteOptions";
 
 export default function ProjectsPage({ pagename }) {
   const [isActive, setIsActive] = useState(false);
@@ -39,26 +38,17 @@ export default function ProjectsPage({ pagename }) {
       <CardListWrapper>
         <CardList>
           {PROJECTS.map((item, index) => {
-            if (index % 2 === 1) return <></>;
+            if (index % 2 === 1)
+              return <React.Fragment key={index + "frag"}></React.Fragment>;
             return (
               <React.Fragment key={index + "wrapper"}>
                 <Card key={index + "card"}>
-                  <Overlay href={"#"} />
-                  <CardTitle>Title</CardTitle>
+                  <Overlay href={item.link} />
+                  <CardTitle>{item.title}</CardTitle>
                   <CardImg>
-                    <img src="https://via.placeholder.com/96x54" alt="xd"></img>
+                    <img src={item.img} alt="Project preview"></img>
                   </CardImg>
-                  <CardDescription>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eveniet tempora, labore, quod quibusdam odit facilis,
-                    perspiciatis vero maiores repudiandae eum libero
-                    voluptatibus numquam a eius ex molestias earum totam
-                    temporibus. Iusto odit pariatur repudiandae cumque aliquid
-                    non voluptate autem natus, velit ut similique perferendis
-                    dolorem nobis architecto, rem obcaecati consequuntur
-                    molestiae iure explicabo delectus! Quasi eveniet excepturi a
-                    repudiandae dolor.
-                  </CardDescription>
+                  <CardDescription>{item.description}</CardDescription>
                 </Card>
               </React.Fragment>
             );
@@ -66,14 +56,18 @@ export default function ProjectsPage({ pagename }) {
         </CardList>
         <CardList>
           {PROJECTS.map((item, index) => {
-            if (index % 2 === 0) return <></>;
+            if (index % 2 === 0)
+              return <React.Fragment key={index + "frag"}></React.Fragment>;
             return (
               <React.Fragment key={index + "wrapper"}>
                 <Card key={index + "card"}>
                   <Overlay href={"#"} />
                   <CardTitle>Title</CardTitle>
                   <CardImg>
-                    <img src="https://via.placeholder.com/96x54" alt="xd"></img>
+                    <img
+                      src="https://via.placeholder.com/320x180"
+                      alt="Project preview"
+                    ></img>
                   </CardImg>
                   <CardDescription>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

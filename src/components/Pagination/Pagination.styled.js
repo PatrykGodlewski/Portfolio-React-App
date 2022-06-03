@@ -6,6 +6,8 @@ const SPACING = 15;
 export const PaginationStyled = styled.div`
   display: flex;
   align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
   gap: ${SPACING}rem;
 `;
 

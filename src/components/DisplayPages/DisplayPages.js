@@ -9,7 +9,7 @@ const DisplayPages = (props) => {
   const { setPagesInfo, setPageApi } = useContext(Context);
   return (
     <ReactFullpage
-      licenseKey="gplv3-license"
+      gplv3-license
       scrollingSpeed={1000}
       afterLoad={(section, origin, destination, direction) => {
         setPagesInfo({

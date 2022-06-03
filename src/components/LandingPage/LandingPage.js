@@ -1,31 +1,36 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { LandingPageStyled, HeadingElement } from "./LandingPage.styled";
+import { gsap, Expo, Power1 } from "gsap";
+import { Context } from "../../App";
 
 const MAIN_TEXT = "HELLO I_AM";
 const ANIMATED_TEXT = ["PATRYK", "DEVELOPER", "DESIGNER", "GAMER"];
 
-const CLASSES = ["show-front", "show-back", "show-top", "show-bottom"];
+function LandingPage({ pagename }) {
+  const headingRef = useRef([]);
+  const { isLoaded } = useContext(Context);
 
-export default function LandingPage({ pagename }) {
-  const refAnim = useRef();
-  const [nth, setNth] = useState({ current: 1, prev: 3 });
-  const [animation, setAnimation] = useState(false);
-
-  const animateMyHeader = () => {
-    const textContainer = refAnim.current;
-
-    textContainer.classList.remove(CLASSES[nth.prev]);
-    textContainer.classList.add(CLASSES[nth.current]);
-
-    if (nth.current === 3) CLASSES.reverse();
-
-    setNth((nthPrev) => {
-      return {
-        current: nthPrev.current >= 3 ? 1 : ++nthPrev.current,
-        prev: 1,
-      };
+  useEffect(() => {
+    if (!isLoaded) return;
+    const refs = [
+      headingRef.current[0],
+      headingRef.current[1],
+      headingRef.current[2],
+    ];
+    // gsap.timeline({ repeat: -1 });
+    gsap.to(refs, {
+      duration: 0.5,
+      opacity: 1,
+      ease: Power1.easeInOut,
+      stagger: 0.2,
     });
-  };
+    gsap.to(refs, {
+      duration: 2,
+      y: 0,
+      ease: Expo.easeOut,
+      stagger: 0.2,
+    });
+  }, [isLoaded]);
 
   const makeHeading = (staticText, animatedText) => {
     const wordsArr = staticText.split(" ");
@@ -34,23 +39,42 @@ export default function LandingPage({ pagename }) {
       item = item.replace("_", " ");
       return (
         <HeadingElement key={index}>
-          {[...item].map((letter, index) => (
-            <span key={index + "letter"} data-content={letter}>
-              {letter}
-            </span>
-          ))}
+          <div
+            className="notAnimatedHeading"
+            key={index + "wrapper"}
+            ref={(el) =>
+              el &&
+              headingRef.current.indexOf(el) &&
+              headingRef.current.push(el)
+            }
+          >
+            {[...item].map((letter, index) => (
+              <span key={index + "letter"} data-content={letter}>
+                {letter}
+              </span>
+            ))}
+          </div>
         </HeadingElement>
       );
     });
 
     const subHeading = () => {
       return (
-        <HeadingElement ref={refAnim} animated key={"animated-container"}>
-          {animatedText.map((text, index) => (
-            <div key={index} className="animatedHeading">
-              {text}
-            </div>
-          ))}
+        <HeadingElement key={"animated-container"}>
+          <div
+            ref={(el) =>
+              el &&
+              headingRef.current.indexOf(el) &&
+              headingRef.current.push(el)
+            }
+            className={"divWithTitles"}
+          >
+            {animatedText.map((text, index) => (
+              <div key={index} className="animatedHeadings">
+                {text}
+              </div>
+            ))}
+          </div>
         </HeadingElement>
       );
     };
@@ -64,3 +88,5 @@ export default function LandingPage({ pagename }) {
     </LandingPageStyled>
   );
 }
+
+export default React.memo(LandingPage);

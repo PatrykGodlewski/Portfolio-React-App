@@ -14,49 +14,77 @@ export const PageWrapper = styled.div`
 
 export const CardListWrapper = styled.div`
   position: absolute;
-  inset: 96;
-  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: ${({ theme }) => theme.RATIO}px;
+  left: ${({ theme }) => theme.RATIO}px;
+  right: 2px;
+  bottom: ${96 * 2}px;
+  overflow: auto;
+  gap: 5rem;
+  /* transform: rotateX(60deg) rotateZ(45deg) translateX(200px) translateY(200px); */
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    outline: 1px solid ${({ theme }) => theme.colors.fadedWhite};
+  }
 `;
 
 export const CardList = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 2rem;
+  white-space: nowrap;
+  margin-left: 5rem;
 `;
 export const CardDescription = styled.div`
   position: absolute;
-  bottom: 0;
   max-height: 0;
   overflow: hidden;
+  white-space: initial;
+  bottom: 20px;
+  left: 20px;
   transition: max-height ${timeing}ms ease-out;
 `;
-export const CardTitle = styled.h1`
+export const CardTitle = styled.h2`
   overflow: hidden;
   position: absolute;
-  top: 0;
+  font-size: 3rem;
+  top: 10px;
+  left: 20px;
   max-height: 0;
   padding: 0rem;
   transition: padding ${timeing}, max-height ${timeing}ms ease-out;
   background-color: rgba(255 255 255 0.4);
 `;
 
+const MULTIPLICATOR = 40;
+const borderRadius = "10px";
 export const Card = styled.div`
   position: relative;
+  display: inline-block;
 
-  aspect-ratio: 16 / 9;
-  /* width: 100%; */
-  /* height: calc(50vh - 96px); */
+  border: 2px white solid;
 
-  background-color: gray;
+  width: ${16 * MULTIPLICATOR}px;
+  height: min-content;
+
+  border-radius: ${borderRadius};
+  margin-right: 5rem;
   transition: outline ${timeing * 1.6}ms, box-shadow ${timeing * 1.6}ms,
     transform ${timeing}ms;
   outline: 0px solid white;
   cursor: pointer;
+
   &:hover {
     outline: 10px solid white;
     box-shadow: -20px 20px 30px black;
     z-index: 999999;
-    transform: translate(-20px, -20px);
     ${CardDescription} {
       transition: max-height ${timeing * 2}ms ease-in;
       max-height: 100%;
@@ -68,10 +96,10 @@ export const Card = styled.div`
     }
   }
 `;
-export const CardShadow = styled.div``;
 
 export const CardImg = styled.div`
   & > img {
+    border-radius: ${borderRadius};
     width: 100%;
   }
 `;
@@ -79,4 +107,7 @@ export const CardImg = styled.div`
 export const Overlay = styled.a`
   position: absolute;
   inset: 0;
+  background-color: black;
+  opacity: 0.5;
+  border-radius: 10px;
 `;

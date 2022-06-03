@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { IndicatorStyled } from "./Indicator.styled";
 import { Context } from "../../App";
 
-function Indicator() {
+function Indicator({ forwardRef }) {
   const { pagesInfo } = useContext(Context);
 
   return (
-    <IndicatorStyled pagination={pagesInfo.currentPage}>
+    <IndicatorStyled ref={forwardRef} pagination={pagesInfo.currentPage}>
       <span className="scroll">SCROLL</span>
       <span className="line" />
     </IndicatorStyled>

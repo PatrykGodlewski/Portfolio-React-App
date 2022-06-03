@@ -8,20 +8,18 @@ export const Menu = styled.ul`
   height: ${({ theme }) => theme.RATIO}px;
   position: relative;
   z-index: 1002;
-  &::before {
-    content: "";
+  & .before {
     position: absolute;
     right: 0;
-    height: 100vh;
+    height: 0vh;
     width: 1px;
     background-color: ${({ theme }) => theme.colors.fadedWhite};
   }
-  &::after {
+  & .after {
     position: absolute;
-    content: "";
     bottom: 0;
     height: 1px;
-    width: 100vw;
+    width: 0vw;
     background-color: ${({ theme }) => theme.colors.fadedWhite};
   }
 `;

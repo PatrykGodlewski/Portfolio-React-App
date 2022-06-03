@@ -2,8 +2,6 @@ import Spline from "@splinetool/react-spline";
 import React, { Suspense, useRef } from "react";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../App";
-import Loader from "../Loader/Loader";
-import Loadable from "react-loadable";
 
 export default function SplineBackground() {
   const style = {
@@ -12,7 +10,7 @@ export default function SplineBackground() {
     position: "absolute",
     inset: 0,
     zIndex: -1,
-    transition: "all 0.5s",
+    transition: "all 1s ease-in-out",
   };
 
   const [spline, setSpline] = useState();
@@ -23,7 +21,7 @@ export default function SplineBackground() {
 
   useEffect(() => {
     if (!pagesInfo) return;
-    if (pagesInfo.currentPage === 1) {
+    if (pagesInfo.currentPage > 0) {
       setAnimation({ opacity: 0, transform: " translateX(-929px)" });
     } else {
       setAnimation({ opacity: 1, transform: " translateX(0px)" });

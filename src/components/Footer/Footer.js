@@ -1,46 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import styled from "styled-components";
+
 import Indicator from "../Indicator/Indicator";
 import Pagination from "../Pagination/Pagination";
 import ReturnButton from "../ReturnButton/ReturnButton";
+import { FooterContainer, Details } from "./Footer.styled";
+import { Context } from "../../App";
+import { Expo, gsap } from "gsap";
 
 function Footer() {
-  const FooterContainer = styled.footer`
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    height: ${({ theme }) => theme.RATIO + "px"};
-    padding-right: ${({ theme }) => `calc(${theme.RATIO}px + 6rem)`};
-    z-index: 998;
-  `;
+  const { isLoaded } = useContext(Context);
+  const allRefs = useRef([]);
 
-  const Details = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8rem;
-    & > div {
-      display: flex;
-      flex-direction: column;
-    }
-    span {
-      color: white;
-    }
-    .heading {
-      font-weight: 600;
-    }
-    .sub-heading {
-      font-weight: 300;
-    }
-  `;
+  useEffect(() => {
+    if (!isLoaded) return;
+    const refsToAnimate = allRefs.current.filter((item, i) => i < 3 && item);
+    gsap.to(refsToAnimate, {
+      duration: 2,
+      stagger: 0.2,
+      ease: Expo.easeInOut,
+      opacity: 1,
+      y: 0,
+    });
+  }, [isLoaded]);
 
   return (
     <FooterContainer>
       <ReturnButton />
-      <Indicator />
-      <Pagination />
-      <Details>
+      <div
+        style={{ opacity: 0, transform: "translateY(30px)" }}
+        ref={(ref) => allRefs.current.push(ref)}
+      >
+        <Indicator />
+      </div>
+      <Pagination forwardRef={(ref) => allRefs.current.push(ref)} />
+      <Details ref={(ref) => allRefs.current.push(ref)}>
         <div>
           <span className="heading">Proffesional</span>
           <span className="sub-heading">web flow</span>

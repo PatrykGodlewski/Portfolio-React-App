@@ -18,6 +18,8 @@ export const NavbarInfo = styled.ul`
   display: flex;
   list-style: none;
   & > li {
+    opacity: 0;
+    transform: translateY(30);
     display: grid;
     place-content: center;
     padding-inline: 6rem;

@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { Context } from "../../App";
 import { PaginationStyled, PagePaginator } from "./Pagination.styled";
 
-export default function Pagination() {
+export default function Pagination({ forwardRef }) {
   const { pagesInfo, pageApi, setIsHoverSnap } = useContext(Context);
   const { currentPage, pages } = pagesInfo;
 
   return (
-    <PaginationStyled>
+    <PaginationStyled ref={forwardRef}>
       {pages &&
         pages.map((page, index) => {
           const pageName = page.children[0].children[0].dataset.pagename;

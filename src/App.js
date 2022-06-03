@@ -20,6 +20,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isHover, setIsHover] = useState(false);
   const [isHoverSnap, setIsHoverSnap] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const value = {
     pagesInfo,
@@ -32,12 +33,14 @@ function App() {
     isLoading,
     setIsHover,
     setIsHoverSnap,
+    setIsLoaded,
+    isLoaded,
   };
 
   return (
     <>
       <Context.Provider value={value}>
-        {isLoading && <Loader />}
+        <Loader isLoading={isLoading} />
         <div style={isLoading ? { opacity: 0 } : { opacity: 1 }}>
           <MouseTracker
             render={(props) => {

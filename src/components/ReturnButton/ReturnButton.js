@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { StyledReturnButton } from "./ReturnButton.styled";
 import { Context } from "../../App";
 
-export default function ReturnButton() {
+export default function ReturnButton({ forwardRef }) {
   const { pagesInfo, pageApi, setIsHover } = useContext(Context);
 
   return (
-    <StyledReturnButton pagination={pagesInfo.currentPage}>
+    <StyledReturnButton ref={forwardRef} pagination={pagesInfo.currentPage}>
       <div
         onClick={() => pageApi.moveTo(1)}
         onMouseEnter={() => setIsHover(true)}
