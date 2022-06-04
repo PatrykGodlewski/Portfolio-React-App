@@ -2,7 +2,7 @@
 
 Portfolio made with React
 
-## Available Scripts
+## Links
 
 LIVE: https://portfolio-nu-umber-51.vercel.app/
 
