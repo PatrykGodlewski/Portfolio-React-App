@@ -23,7 +23,6 @@ export const CardListWrapper = styled.div`
   bottom: ${96 * 2}px;
   overflow: auto;
   gap: 5rem;
-  /* transform: rotateX(60deg) rotateZ(45deg) translateX(200px) translateY(200px); */
 
   ::-webkit-scrollbar {
     width: 4px;

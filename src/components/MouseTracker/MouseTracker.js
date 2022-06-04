@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import lerp from "../../helpers/lerp";
 
 export default function MouseTracker({ render }) {

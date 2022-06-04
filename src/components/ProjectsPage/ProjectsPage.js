@@ -25,16 +25,8 @@ export default function ProjectsPage({ pagename }) {
     isOnView ? setIsActive(true) : setIsActive(false);
   }, [pagesInfo, pagename]);
 
-  const drag = () => {
-    // window
-  };
-
   return (
-    <PageWrapper
-      onDrag={() => drag()}
-      data-pagename={pagename}
-      active={isActive}
-    >
+    <PageWrapper data-pagename={pagename} active={isActive}>
       <CardListWrapper>
         <CardList>
           {PROJECTS.map((item, index) => {

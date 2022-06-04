@@ -1,11 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import SplineLoader from "@splinetool/loader";
+import { Context } from "../../App";
 
 export default function SplineBackgroundThree() {
   const [domRenderer, setDomRenderer] = useState(false);
   const ref = useRef();
+  const [animation, setAnimation] = useState({});
+  const splineRef = useRef();
 
   useEffect(() => {
     // camera
@@ -74,6 +77,21 @@ export default function SplineBackgroundThree() {
     ref.current.innerHTML = "";
     ref.current.appendChild(domRenderer);
   }, [domRenderer]);
+
+  const { pagesInfo, setIsLoading } = useContext(Context);
+
+  useEffect(() => {
+    if (!pagesInfo) return;
+    if (pagesInfo.currentPage > 0) {
+      setAnimation({ opacity: 0, transform: " translateX(-929px)" });
+    } else {
+      setAnimation({ opacity: 1, transform: " translateX(0px)" });
+    }
+  }, [pagesInfo]);
+  useEffect(() => {
+    setIsLoading(false);
+    if (!ref.current.dataset.engine) return;
+  });
 
   return <div ref={ref}></div>;
 }

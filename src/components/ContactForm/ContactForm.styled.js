@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import About from "./About/About";
 
 export const ContactFormStyled = styled.section`
   padding: ${({ theme }) => theme.RATIO + 40}px;

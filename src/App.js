@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavFixed from "./components/NavFixed/NavFixed";
 import Footer from "./components/Footer/Footer";
 import Loader from "./components/Loader/Loader";
 import DisplayPages from "./components/DisplayPages/DisplayPages";
-import SplineBackground from "./components/SplineBackground/SplineBackground";
 import MouseTracker from "./components/MouseTracker/MouseTracker";
 import AnimatedTracker from "./components/MouseTracker/AnimatedTracker/AnimatedTracker";
-// import SplineBackgroundThree from "./components/SplineBackground/SplineBackgroundThree.js";
+import SplineBackground from "./components/SplineBackground/SplineBackground";
 
 export const Context = React.createContext();
 
