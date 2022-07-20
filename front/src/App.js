@@ -5,7 +5,6 @@ import Loader from "./components/Loader/Loader";
 import DisplayPages from "./components/DisplayPages/DisplayPages";
 import MouseTracker from "./components/MouseTracker/MouseTracker";
 import AnimatedTracker from "./components/MouseTracker/AnimatedTracker/AnimatedTracker";
-import SplineBackground from "./components/SplineBackground/SplineBackground";
 
 export const Context = React.createContext();
 
@@ -16,7 +15,7 @@ function App() {
   });
   const [pageApi, setPageApi] = useState();
   const [splineObject, setSplineObject] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // need refactoring
   const [isHover, setIsHover] = useState(false);
   const [isHoverSnap, setIsHoverSnap] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -40,7 +39,7 @@ function App() {
     <>
       <Context.Provider value={value}>
         <Loader isLoading={isLoading} />
-        <div style={isLoading ? { opacity: 0 } : { opacity: 1 }}>
+        <div style={!isLoading ? { opacity: 0 } : { opacity: 1 }}>
           <MouseTracker
             render={(props) => {
               return (
@@ -56,7 +55,6 @@ function App() {
           <NavFixed />
           <DisplayPages />
           <Footer />
-          <SplineBackground />
         </div>
       </Context.Provider>
     </>
