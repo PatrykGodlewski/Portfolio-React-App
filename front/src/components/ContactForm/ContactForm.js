@@ -1,20 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import About from "./About/About";
 import { ContactFormStyled } from "./ContactForm.styled";
+import { ErrorPopupStyled } from "../ErrorPopup/ErrorPopup.styled";
 
 export default function ContactForm({ pagename }) {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const contentRef = useRef(null);
 
+  const [error, setError] = useState({
+    name: false,
+    email: false,
+    content: false,
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      !nameRef.current.value ||
-      !emailRef.current.value ||
-      !contentRef.current.value
-    )
-      return;
+    setError({
+      name: false,
+      email: false,
+      content: false,
+    });
+    if (!nameRef.current.value) setError((prev) => ({ ...prev, name: true }));
+    if (!emailRef.current.value) setError((prev) => ({ ...prev, email: true }));
+    if (!contentRef.current.value)
+      setError((prev) => ({ ...prev, content: true }));
 
     const url = `http://${window.location.host}/sendmail`;
     fetch(url, {
@@ -33,7 +43,7 @@ export default function ContactForm({ pagename }) {
   };
 
   return (
-    <ContactFormStyled data-pagename={pagename}>
+    <ContactFormStyled error={error} data-pagename={pagename}>
       <About />
       <form onSubmit={handleSubmit}>
         <h1>Get in touch</h1>
@@ -46,6 +56,9 @@ export default function ContactForm({ pagename }) {
             id="emailInput"
             placeholder="Email"
           />
+          {error.email && (
+            <ErrorPopupStyled>Email jest wymagany</ErrorPopupStyled>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="yourName">Imię i Nazwisko</label>
@@ -56,6 +69,9 @@ export default function ContactForm({ pagename }) {
             id="yourName"
             placeholder="Imię i Nazwisko"
           />
+          {error.name && (
+            <ErrorPopupStyled>Imię i nazwisko jest wymagane</ErrorPopupStyled>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="emailContent">Treść maila</label>
@@ -66,6 +82,9 @@ export default function ContactForm({ pagename }) {
             id="emailContent"
             placeholder="Treść"
           />
+          {error.content && (
+            <ErrorPopupStyled>Treść jest wymagana</ErrorPopupStyled>
+          )}
         </div>
 
         <button className="submit-button" type="submit">

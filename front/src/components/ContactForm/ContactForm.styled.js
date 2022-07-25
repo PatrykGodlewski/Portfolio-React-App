@@ -19,6 +19,15 @@ export const ContactFormStyled = styled.section`
     label {
       display: none;
     }
+    #yourName {
+      border-color: ${({ error }) => (error.name ? "red" : "white")};
+    }
+    #emailContent {
+      border-color: ${({ error }) => (error.content ? "red" : "white")};
+    }
+    #emailInput {
+      border-color: ${({ error }) => (error.email ? "red" : "white")};
+    }
     .form-control {
       background-color: transparent;
       border-style: none;
