@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { LandingPageStyled, HeadingElement } from "./LandingPage.styled";
 import { gsap, Expo, Power1 } from "gsap";
 import { Context } from "../../App";

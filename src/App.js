@@ -6,6 +6,7 @@ import DisplayPages from "./components/DisplayPages/DisplayPages";
 import MouseTracker from "./components/MouseTracker/MouseTracker";
 import AnimatedTracker from "./components/MouseTracker/AnimatedTracker/AnimatedTracker";
 import DesktopAppInformation from "./components/DesktopAppInformation/DesktopAppInformation";
+import Notificator from "./components/Notificator/Notificator";
 
 export const Context = React.createContext();
 
@@ -20,8 +21,11 @@ function App() {
   const [isHover, setIsHover] = useState(false);
   const [isHoverSnap, setIsHoverSnap] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [notification, setNotification] = useState("");
 
   const value = {
+    setNotification,
+    notification,
     pagesInfo,
     setPagesInfo,
     setPageApi,
@@ -39,6 +43,7 @@ function App() {
   return (
     <>
       <Context.Provider value={value}>
+        <Notificator />
         <DesktopAppInformation />
         <Loader isLoading={isLoading} />
         <div style={!isLoading ? { opacity: 0 } : { opacity: 1 }}>

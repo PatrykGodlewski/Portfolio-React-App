@@ -47,6 +47,7 @@ export const CardDescription = styled.div`
   bottom: 20px;
   left: 20px;
   transition: opacity 300ms ease-in-out;
+  opacity: 0;
 `;
 export const CardTitle = styled.h2`
   position: absolute;
@@ -55,6 +56,8 @@ export const CardTitle = styled.h2`
   left: 20px;
   transition: opacity 300ms ease-in-out;
   background-color: rgba(255 255 255 0.4);
+  opacity: 0;
+  padding: 1rem;
 `;
 
 const MULTIPLICATOR = 40;
@@ -74,13 +77,6 @@ export const Card = styled.div`
     transform ${timeing}ms;
   outline: 0px solid white;
   cursor: pointer;
-  ${CardDescription} {
-    opacity: 0;
-  }
-  ${CardTitle} {
-    opacity: 0;
-    padding: 1rem;
-  }
 
   &:hover {
     outline: 10px solid white;

@@ -1,12 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import About from "./About/About";
 import { ContactFormStyled } from "./ContactForm.styled";
 import { ErrorPopupStyled } from "../ErrorPopup/ErrorPopup.styled";
+import { Context } from "../../App";
 
 export default function ContactForm({ pagename }) {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const contentRef = useRef(null);
+
+  const { setNotification } = useContext(Context);
 
   const [error, setError] = useState({
     name: false,
@@ -46,7 +49,7 @@ export default function ContactForm({ pagename }) {
     )
       return;
 
-    const url = `http://${window.location.host}/sendmail`;
+    const url = `https://${window.location.host}/sendmail`;
     fetch(url, {
       method: "POST",
 
@@ -59,7 +62,15 @@ export default function ContactForm({ pagename }) {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    });
+    })
+      .then((res) => {
+        setNotification(
+          "Thanks for contacting me! I will read that email as fast as I can 😊"
+        );
+      })
+      .catch((err) => {
+        setNotification("Something went wrong");
+      });
   };
 
   return (

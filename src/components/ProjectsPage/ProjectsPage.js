@@ -39,7 +39,7 @@ export default function ProjectsPage({ pagename }) {
                 >
                   <Overlay
                     href={item.link}
-                    target={item.link !== "#" && "_blank"}
+                    target={item.link !== "#" ? "_blank" : null}
                   />
                   <CardTitle>{item.title}</CardTitle>
                   <CardImg>

@@ -13,7 +13,6 @@ export default function MenuButton() {
 
   useEffect(() => {
     if (!isLoaded) return;
-    console.log(menuRefBefore);
     gsap.to(menuRefBefore.current, {
       duration: 2,
       height: "100vh",
