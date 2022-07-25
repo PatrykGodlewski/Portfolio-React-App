@@ -35,8 +35,16 @@ export default function ContactForm({ pagename }) {
     });
     if (!nameRef.current.value) setError((prev) => ({ ...prev, name: true }));
     if (!emailRef.current.value) setError((prev) => ({ ...prev, email: true }));
-    if (!contentRef.current.value)
+    if (!contentRef.current.value) {
       setError((prev) => ({ ...prev, content: true }));
+    }
+
+    if (
+      !nameRef.current.value ||
+      !emailRef.current.value ||
+      !contentRef.current.value
+    )
+      return;
 
     const url = `http://${window.location.host}/sendmail`;
     fetch(url, {
