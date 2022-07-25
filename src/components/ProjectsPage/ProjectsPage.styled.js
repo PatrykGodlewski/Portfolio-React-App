@@ -43,22 +43,17 @@ export const CardList = styled.div`
 `;
 export const CardDescription = styled.div`
   position: absolute;
-  max-height: 0;
-  overflow: hidden;
   white-space: initial;
   bottom: 20px;
   left: 20px;
-  transition: max-height ${timeing}ms ease-out;
+  transition: opacity 300ms ease-in-out;
 `;
 export const CardTitle = styled.h2`
-  overflow: hidden;
   position: absolute;
   font-size: 3rem;
   top: 10px;
   left: 20px;
-  max-height: 0;
-  padding: 0rem;
-  transition: padding ${timeing}, max-height ${timeing}ms ease-out;
+  transition: opacity 300ms ease-in-out;
   background-color: rgba(255 255 255 0.4);
 `;
 
@@ -79,19 +74,24 @@ export const Card = styled.div`
     transform ${timeing}ms;
   outline: 0px solid white;
   cursor: pointer;
+  ${CardDescription} {
+    opacity: 0;
+  }
+  ${CardTitle} {
+    opacity: 0;
+    padding: 1rem;
+  }
 
   &:hover {
     outline: 10px solid white;
     box-shadow: -20px 20px 30px black;
     z-index: 999999;
+    transform: translateX(10px) translateY(-10px);
     ${CardDescription} {
-      transition: max-height ${timeing * 2}ms ease-in;
-      max-height: 100%;
+      opacity: 1;
     }
     ${CardTitle} {
-      transition: max-height ${timeing * 2}ms ease-in;
-      max-height: 100%;
-      padding: 1rem;
+      opacity: 1;
     }
   }
 `;

@@ -5,6 +5,7 @@ import Loader from "./components/Loader/Loader";
 import DisplayPages from "./components/DisplayPages/DisplayPages";
 import MouseTracker from "./components/MouseTracker/MouseTracker";
 import AnimatedTracker from "./components/MouseTracker/AnimatedTracker/AnimatedTracker";
+import DesktopAppInformation from "./components/DesktopAppInformation/DesktopAppInformation";
 
 export const Context = React.createContext();
 
@@ -38,6 +39,7 @@ function App() {
   return (
     <>
       <Context.Provider value={value}>
+        <DesktopAppInformation />
         <Loader isLoading={isLoading} />
         <div style={!isLoading ? { opacity: 0 } : { opacity: 1 }}>
           <MouseTracker

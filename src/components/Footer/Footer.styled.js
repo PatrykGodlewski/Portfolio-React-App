@@ -12,6 +12,10 @@ export const FooterContainer = styled.footer`
 `;
 
 export const Details = styled.div`
+  @media (max-width: 1100px) {
+    display: none;
+  }
+
   display: flex;
   align-items: center;
   gap: 8rem;

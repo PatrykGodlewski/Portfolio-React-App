@@ -6,6 +6,10 @@ export const ContactFormStyled = styled.section`
   height: 100%;
   width: 100%;
   display: flex;
+  h1 {
+    font-size: 8vh;
+  }
+
   & > form {
     width: 50%;
     display: flex;
@@ -15,10 +19,12 @@ export const ContactFormStyled = styled.section`
   & .form-group {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     label {
       display: none;
     }
+
     #yourName {
       border-color: ${({ error }) => (error.name ? "red" : "white")};
     }
@@ -32,7 +38,7 @@ export const ContactFormStyled = styled.section`
       background-color: transparent;
       border-style: none;
       border: solid 2px white;
-      padding: 2rem;
+      padding: 2vh;
       color: white;
       resize: none;
       border-radius: 5px;

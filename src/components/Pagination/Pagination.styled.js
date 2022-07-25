@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 const CIRCLE_SIZE = 20;
-const SPACING = 15;
 
 export const PaginationStyled = styled.div`
   display: flex;
   align-items: center;
   opacity: 0;
   transform: translateY(30px);
-  gap: ${SPACING}rem;
+  gap: ${({ spacing }) => spacing}rem;
 `;
 
 export const PagePaginator = styled.div`
@@ -41,7 +40,7 @@ export const PagePaginator = styled.div`
   & > span {
     position: absolute;
     left: 17px;
-    width: calc(${SPACING}rem + 2px);
+    width: calc(${({ spacing }) => spacing}rem + 2px);
     height: 4px;
     background-color: white;
     cursor: default;

@@ -14,6 +14,18 @@ export default function ContactForm({ pagename }) {
     content: false,
   });
 
+  const handleValidationOnBlur = () => {
+    setError({
+      name: false,
+      email: false,
+      content: false,
+    });
+    if (!nameRef.current.value) setError((prev) => ({ ...prev, name: true }));
+    if (!emailRef.current.value) setError((prev) => ({ ...prev, email: true }));
+    if (!contentRef.current.value)
+      setError((prev) => ({ ...prev, content: true }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError({
@@ -50,6 +62,7 @@ export default function ContactForm({ pagename }) {
         <div className="form-group">
           <label htmlFor="emailInput">Email address</label>
           <input
+            onBlur={handleValidationOnBlur}
             ref={emailRef}
             type="email"
             className="form-control"
@@ -68,6 +81,7 @@ export default function ContactForm({ pagename }) {
             className="form-control"
             id="yourName"
             placeholder="Imię i Nazwisko"
+            onBlur={handleValidationOnBlur}
           />
           {error.name && (
             <ErrorPopupStyled>Imię i nazwisko jest wymagane</ErrorPopupStyled>
@@ -81,6 +95,7 @@ export default function ContactForm({ pagename }) {
             className="form-control"
             id="emailContent"
             placeholder="Treść"
+            onBlur={handleValidationOnBlur}
           />
           {error.content && (
             <ErrorPopupStyled>Treść jest wymagana</ErrorPopupStyled>
